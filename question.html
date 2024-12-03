@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venom Escape Room - Quiz 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e8e8e8;
+        }
+        .card {
+            background-color: #1e1e1e;
+        }
+        .btn-primary {
+            background-color: #e50914;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>Second phase: Wireless Protocols</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Question:</strong> Which wireless protocol is commonly used for local area networks?</p>
+                <form id="quiz2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="quiz2_answer" value="bluetooth">
+                        <label class="form-check-label">Bluetooth</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="quiz2_answer" value="wifi">
+                        <label class="form-check-label">Wi-Fi</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="quiz2_answer" value="zigbee">
+                        <label class="form-check-label">Zigbee</label>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-3" onclick="checkQuiz2()">Check</button>
+                    <p id="result2" class="mt-2"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkQuiz2() {
+            const answer = document.querySelector('input[name="quiz2_answer"]:checked');
+            const result = document.getElementById("result2");
+            if (answer && answer.value === "wifi") {
+                result.textContent = "Correct! Proceed to the next phase.";
+                result.className = "text-success";
+                setTimeout(() => window.location.href = "story3.html", 2000);
+            } else {
+                result.textContent = "Incorrect answer. Try again!";
+                result.className = "text-danger";
+            }
+        }
+    </script>
+
+</body>
+</html>

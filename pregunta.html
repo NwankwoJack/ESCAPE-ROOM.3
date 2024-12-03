@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venom Escape Room - Quiz 3</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e8e8e8;
+        }
+        .card {
+            background-color: #1e1e1e;
+        }
+        .btn-primary {
+            background-color: #e50914;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>Tercera fase: Red de enlace y conmutador</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Pregunta:</strong> ¿Cuál de los siguientes dispositivos conecta varios dispositivos en una red local?</p>
+                <form id="quiz3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="quiz3_answer" value="router">
+                        <label class="form-check-label">Router</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="quiz3_answer" value="switch">
+                        <label class="form-check-label">Switch</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="quiz3_answer" value="modem">
+                        <label class="form-check-label">Modem</label>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-3" onclick="checkQuiz3()">Verificar</button>
+                    <p id="result3" class="mt-2"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkQuiz3() {
+            const answer = document.querySelector('input[name="quiz3_answer"]:checked');
+            const result = document.getElementById("result3");
+            if (answer && answer.value === "switch") {
+                result.textContent = "¡Correcto! Has completado la misión.";
+                result.className = "text-success";
+                setTimeout(() => window.location.href = "final.html", 2000);
+            } else {
+                result.textContent = "Respuesta incorrecta. ¡Inténtalo de nuevo!";
+                result.className = "text-danger";
+            }
+        }
+    </script>
+
+</body>
+</html>
